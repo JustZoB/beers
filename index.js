@@ -5,7 +5,7 @@ function getBeers(page) {
                 $('#beerList').append(`
                     <div class='beer'>
                         <p class='id'>${beer.id}</p>
-                        <button class="close"></button>
+                        <button class="close" title="Delete"><i class="fas fa-times fa-2x"></i></button>
                         <div class='image'><img src="${beer.image_url}" alt="Beer image"></div>
                         <h2 class='name'>${beer.name}</h2>
                         <p class='description'>${beer.description}</p>
@@ -25,5 +25,8 @@ function getBeers(page) {
     });
 }
 
-let page = 1;
-getBeers(page);
+getBeers(1);
+
+$('body').on('click', '.close', function () {
+    $(this).parents(".beer").detach();
+});

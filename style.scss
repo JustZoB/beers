@@ -33,6 +33,12 @@
                 position: absolute;
                 right: 20px;
                 top: 20px;
+                border: 0;
+                cursor: pointer;
+
+                :hover {
+                    color: rgb(60, 60, 60);
+                }
             }
             .edit {
                 margin: 5px;
@@ -55,12 +61,13 @@
         }
     }
 }
+
 .next__wrap {
     display: flex;
     justify-content: center;
     margin: 10px 0;
+
     .next {
         padding: 5px 10px;
     }
 }
-
