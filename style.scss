@@ -2,37 +2,65 @@
     margin: 0;
     padding: 0;
 }
-body {
-    display: flex;
-    justify-content: center;
-}
+
 #root {
     display: flex;
-    flex-wrap: wrap;
-    width: 1300px;
-    .beer {
-        position: relative;
-        width: 400px;
-        border: 1px black solid;
-        padding: 5px;
-        margin: 5px;
-        .id {
-            position: absolute;
-            right: 20px;
-            top: 20px;
+    justify-content: center;
+
+    #beerList {
+        display: flex;
+        flex-wrap: wrap;
+        max-width: 1266px;
+
+        @media (max-width: 1290px) {
+            max-width: 845px;
         }
-        .name {
-            margin: 10px 0;
+        @media (max-width: 860px) {
+            max-width: 420px;
         }
-        .image {
-            display: flex;
-            justify-content: center;
-            img {
-                max-height: 300px;
+        .beer {
+            position: relative;
+            width: 400px;
+            border: 1px black solid;
+            padding: 5px;
+            margin: 5px;
+            .id {
+                position: absolute;
+                left: 20px;
+                top: 20px;
             }
-        }
-        .description {
-            margin: 10px 0;
+            .close {
+                position: absolute;
+                right: 20px;
+                top: 20px;
+            }
+            .edit {
+                margin: 5px;
+                padding: 5px 10px;
+                float: right;
+            }
+            .name {
+                margin: 10px 0;
+            }
+            .image {
+                display: flex;
+                justify-content: center;
+                img {
+                    height: 300px;
+                }
+            }
+            .description {
+                margin: 10px 0;
+            }
         }
     }
 }
+.next__wrap {
+    display: flex;
+    justify-content: center;
+    margin: 10px 0;
+    .next {
+        padding: 5px 10px;
+    }
+}
+
