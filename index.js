@@ -18,8 +18,9 @@ function getBeers(page) {
                 <div class="next__wrap"><button class="next">Show next</button></div>`
             );
             $('.next').on('click', function () {
-                $(".next__wrap").detach();
+                $(this).attr("disebled", true).text("Loading...");
                 getBeers(++page);
+                $(this).parent().detach();
             });
         }
     });
@@ -30,6 +31,7 @@ getBeers(1);
 $('body').on('click', '.close', function () {
     $(this).parents(".beer").detach();
 });
+
 $('body').on('click', '.edit', function () {
     let $name = $(this).parents(".beer").find(".name"),
         $description = $(this).parents(".beer").find(".description"),
