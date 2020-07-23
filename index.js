@@ -15,8 +15,8 @@ function getBeers(page) {
                 );
             });
             $('#root').after(`
-                <div class="next__wrap"><button class="next">Show next</button></div>
-            `);
+                <div class="next__wrap"><button class="next">Show next</button></div>`
+            );
             $('.next').on('click', function () {
                 $(".next__wrap").detach();
                 getBeers(++page);
@@ -29,4 +29,27 @@ getBeers(1);
 
 $('body').on('click', '.close', function () {
     $(this).parents(".beer").detach();
+});
+$('body').on('click', '.edit', function () {
+    let $name = $(this).parents(".beer").find(".name"),
+        $description = $(this).parents(".beer").find(".description"),
+        name = $name.text(),
+        description = $description.text();
+
+    $('.overlay').css("display", "block");
+    $('.modal').css("display", "flex");
+    $('body').css("overflow", "hidden");
+
+    $('.modal').append(`
+        <textarea rows="1" cols="45" class="textarea_name">${name}</textarea>
+        <textarea rows="10" cols="45" class="textarea_description">${description}</textarea>
+        <button class="applyEdit">Apply edit</button>`
+    );
+    $('.applyEdit').on('click', function () {
+        $name.text($('.textarea_name').val());
+        $description.text($('.textarea_description').val());
+        $('.overlay').css("display", "none");
+        $('.modal').css("display", "none").empty();
+        $('body').css("overflow", "unset");
+    });
 });
