@@ -1,0 +1,38 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+body {
+    display: flex;
+    justify-content: center;
+}
+#root {
+    display: flex;
+    flex-wrap: wrap;
+    width: 1300px;
+    .beer {
+        position: relative;
+        width: 400px;
+        border: 1px black solid;
+        padding: 5px;
+        margin: 5px;
+        .id {
+            position: absolute;
+            right: 20px;
+            top: 20px;
+        }
+        .name {
+            margin: 10px 0;
+        }
+        .image {
+            display: flex;
+            justify-content: center;
+            img {
+                max-height: 300px;
+            }
+        }
+        .description {
+            margin: 10px 0;
+        }
+    }
+}
